@@ -10,7 +10,7 @@ source ../common/util.sh
 util::check_root
 
 # 初始化usergroup
-bash init-usergroup.sh
+#bash init-usergroup.sh
 # 增加用户
 bash add-user.sh $1 $2
 

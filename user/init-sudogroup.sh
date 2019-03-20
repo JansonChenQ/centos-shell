@@ -12,10 +12,9 @@ util::check_root
 # 设置sudogroup用户组
 echo "设置sudo用户组为big-data"
 if [[ `grep -c "^big-data" /etc/passwd` = 0 || `grep -c "^big-data" /etc/group` = 0 ]]; then
-    useradd sudogroup
+#    useradd sudogroup
     # 设置sudo权限
     echo "%big-data    ALL=(ALL)       ALL" >> /etc/sudoers
 else
     echo "big-data用户已存在"
 fi
-

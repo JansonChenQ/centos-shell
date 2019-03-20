@@ -8,6 +8,9 @@ source ../common/util.sh
 # 检查root
 util::check_root
 
+# 初始化新用户组
+bash init-newuser-sudo.sh bddev 'qwe111111'
+
 # 安装前置依赖
 # 安装常用软件
 yum install -y wget git curl traceroute zlib 

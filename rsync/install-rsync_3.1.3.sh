@@ -35,10 +35,10 @@ EOF
 # 去除系统默认rsync
 mv /usr/bin/rsync{,.bak'_'`date +%Y%m%d_%H%M%S`}
 
-# 增加远程sudo执行，依赖www-data用户，用于sudo远程同步时权限提升
-if [[ `grep -c "^www-data" /etc/sudoers` = 0 ]]; then
+# 增加远程sudo执行，依赖big-data用户，用于sudo远程同步时权限提升
+if [[ `grep -c "^big-data" /etc/sudoers` = 0 ]]; then
     # 增加sudo权限用于rsync
-    echo "www-data    ALL=NOPASSWD:/data/service/rsync/bin/rsync" >> /etc/sudoers
+    echo "big-data    ALL=NOPASSWD:/data/service/rsync/bin/rsync" >> /etc/sudoers
 else
-    echo "www-data用户的sudo执行rsync权限已存在"
+    echo "big-data用户的sudo执行rsync权限已存在"
 fi

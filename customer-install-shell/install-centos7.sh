@@ -46,6 +46,6 @@ bash ../ssh/edit-port.sh ${PORT}
 # 初始化hostname
 bash ../hostname/init-hostname.sh ${HOSTNAME}
 
-# 初始化www-data用户密码
-bash ../directory/init-www-data-passwd.sh ${PASSWD}
-echo "www-data用户密码初始化完成："${PASSWD}
+# 初始化big-data用户密码
+bash ../directory/init-big-data-passwd.sh ${PASSWD}
+echo "big-data用户密码初始化完成："${PASSWD}

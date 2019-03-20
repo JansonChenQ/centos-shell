@@ -9,15 +9,22 @@ cd `dirname $0`
 JAVA_URL=https://github.com/frekele/oracle-java/releases/download/8u172-b11/jdk-8u172-linux-x64.tar.gz
 JAVA_FILE=jdk-8u172-linux-x64.tar.gz
 JAVA_FILE_PATH=jdk1.8.0_172
-JDK_PATH=/data/service/java
+JDK_PATH=/usr/etc/java
 JAVA_PROFILE_D=/etc/profile.d/java.sh
 
-# 检查是否为root用户，脚本必须在root权限下运行
-source ../common/util.sh
-util::check_root
+if [[ "$(whoami)" != "root" ]]; then
+        echo "please run this script as root !" >&2
+        exit 1
+fi
 
+if [[ ! -f ${JAVA_FILE} ]]; then
+    wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" $JAVA_URL -O $JAVA_FILE && tar zxvf $JAVA_FILE
+fi
 # 下载并解压
-wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" $JAVA_URL -O $JAVA_FILE && tar zxvf $JAVA_FILE
+
+if [[ ! -d ${JDK_PATH} ]]; then
+mkdir ${JDK_PATH}
+fi
 
 # 移动
 mv $JAVA_FILE_PATH/* $JDK_PATH
@@ -31,7 +38,7 @@ export PATH=\$JAVA_HOME/bin:\$PATH
 EOF
 
 # 更新环境变量
-. /etc/profile
+source /etc/profile
 
 # 使其与yum安装的保持一致
 mkdir -p /usr/lib/jvm/java-1.8.0/bin/

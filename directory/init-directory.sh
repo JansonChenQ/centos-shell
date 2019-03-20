@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# 此文件夹隶属于www-data这个用户，注意这个用户有sudo权限 
+# 此文件夹隶属于big-data这个用户，注意这个用户有sudo权限
 
 # 解决相对路径问题
 cd `dirname $0`
@@ -19,22 +19,22 @@ cp README.md /data
 find /data -exec mv {}/.gitignore /tmp 1>/dev/null 2>&1 \;
 
 # 初始化用户
-if [[ `grep -c "^www-data" /etc/passwd` = 0 || `grep -c "^www-data" /etc/group` = 0 ]]; then
-    useradd www-data
+if [[ `grep -c "^big-data" /etc/passwd` = 0 || `grep -c "^big-data" /etc/group` = 0 ]]; then
+    useradd big-data
     # 增加sudo权限
-    echo "%www-data    ALL=(ALL)       ALL" >> /etc/sudoers
+    echo "%big-data    ALL=(ALL)       ALL" >> /etc/sudoers
     # 设置密码
-    echo "设置www-data用户密码"
-    # passwd www-data
+    echo "设置big-data用户密码"
+    # passwd big-data
 else
-    echo "www-data用户已存在"
+    echo "big-data用户已存在"
 fi
 
 # 设置文件夹用户组权限
-chown www-data:www-data /data
-chown -R www-data:www-data /data/service
-chown -R www-data:www-data /data/webapp
-chown -R www-data:www-data /data/weblog
+chown big-data:big-data /data
+chown -R big-data:big-data /data/service
+chown -R big-data:big-data /data/webapp
+chown -R big-data:big-data /data/weblog
 # 增删改权限
 chmod 775 /data
 chmod -R 775 /data/service

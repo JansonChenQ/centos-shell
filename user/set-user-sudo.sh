@@ -16,5 +16,5 @@ if [[ ! -n $1 ]]; then
   exit 1
 fi
 
-echo "设置的sudo权限为www-data用户组下的隶属关系"
-usermod -a -G www-data $1
+echo "设置的sudo权限为big-data用户组下的隶属关系"
+usermod -a -G big-data $1

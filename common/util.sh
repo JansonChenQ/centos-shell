@@ -16,7 +16,7 @@ util::log_info() {
 
 #######################################
 # 输出错误日志
-# Globals:
+# Globals:e
 # Arguments:
 #   $1:日志信息
 # Returns:

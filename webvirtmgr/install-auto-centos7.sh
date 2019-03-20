@@ -139,4 +139,4 @@ service libvirtd restart
 service supervisord start
 
 echo "请勿设置为其它用户组权限/data/service/webvirtmgr，请一定保证为nginx用户组"
-echo "如果/data/service/webvirtmgr的顶层权限不是nginx用户组，那么请设置nginx隶属于这个用户组，比如顶层权限为www-data用户组时：usermod -a -G www-data nginx"
+echo "如果/data/service/webvirtmgr的顶层权限不是nginx用户组，那么请设置nginx隶属于这个用户组，比如顶层权限为big-data用户组时：usermod -a -G big-data nginx"

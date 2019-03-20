@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# 设置data文件夹用户组为www-data
+# 设置data文件夹用户组为big-data
 
 # 解决相对路径问题
 cd `dirname $0`
@@ -16,6 +16,6 @@ if [[ ! -n $1 ]]; then
 fi
 
 # 设置用户组
-chown -R www-data:www-data ${DIR_PATH}
+chown -R big-data:big-data ${DIR_PATH}
 # 增删改权限
 chmod -R 770 ${DIR_PATH}

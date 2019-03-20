@@ -309,5 +309,5 @@ chkconfig nginx on
 # 启动
 service nginx start 
 
-# 设置用户隶属于www-data用户组
-usermod -aG www-data nginx
+# 设置用户隶属于big-data用户组
+usermod -aG big-data nginx

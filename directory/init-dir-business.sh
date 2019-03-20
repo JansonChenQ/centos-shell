@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # 业务系统文件夹初始化，较少的文件夹，以业务为主
-# 此文件夹隶属于www-data这个用户，注意这个用户有sudo权限
+# 此文件夹隶属于big-data这个用户，注意这个用户有sudo权限
 
 # 解决相对路径问题
 cd `dirname $0`
@@ -39,43 +39,43 @@ mkdir -p /data/weblog/tomcat
 mkdir -p /data/weblog/tomcat/www.domain.com
 
 # 初始化用户
-if [[ `grep -c "^www-data" /etc/passwd` = 0 || `grep -c "^www-data" /etc/group` = 0 ]]; then
-    useradd www-data
+if [[ `grep -c "^big-data" /etc/passwd` = 0 || `grep -c "^big-data" /etc/group` = 0 ]]; then
+    useradd big-data
     # 增加sudo权限
-    echo "%www-data    ALL=(ALL)       ALL" >> /etc/sudoers
+    echo "%big-data    ALL=(ALL)       ALL" >> /etc/sudoers
     # 设置密码
-    echo "www-data用户新建完成，请设置www-data用户密码"
-    # passwd www-data
+    echo "big-data用户新建完成，请设置big-data用户密码"
+    # passwd big-data
 else
-    echo "www-data用户已存在"
+    echo "big-data用户已存在"
 fi
 
 # 设置文件夹用户组权限
-chown www-data:www-data /data
+chown big-data:big-data /data
 # java
-chown -R www-data:www-data /data/service
-chown -R www-data:www-data /data/service/common_conf
-chown -R www-data:www-data /data/service/java
-chown -R www-data:www-data /data/service/maven
-chown -R www-data:www-data /data/service/nginx
-chown -R www-data:www-data /data/service/nginx_base
-chown -R www-data:www-data /data/service/nginx_vhost
-chown -R www-data:www-data /data/service/node
-chown -R www-data:www-data /data/service/rsync
-chown -R www-data:www-data /data/service/tomcat
-chown -R www-data:www-data /data/service/tomcat_base
+chown -R big-data:big-data /data/service
+chown -R big-data:big-data /data/service/common_conf
+chown -R big-data:big-data /data/service/java
+chown -R big-data:big-data /data/service/maven
+chown -R big-data:big-data /data/service/nginx
+chown -R big-data:big-data /data/service/nginx_base
+chown -R big-data:big-data /data/service/nginx_vhost
+chown -R big-data:big-data /data/service/node
+chown -R big-data:big-data /data/service/rsync
+chown -R big-data:big-data /data/service/tomcat
+chown -R big-data:big-data /data/service/tomcat_base
 # 应用
-chown -R www-data:www-data /data/webapp
-chown -R www-data:www-data /data/webapp/www.domain.com
+chown -R big-data:big-data /data/webapp
+chown -R big-data:big-data /data/webapp/www.domain.com
 # 日志
-chown -R www-data:www-data /data/weblog
-chown -R www-data:www-data /data/weblog/business
-chown -R www-data:www-data /data/weblog/business/www.domain.com
-chown -R www-data:www-data /data/weblog/nginx
-chown -R www-data:www-data /data/weblog/nginx/default
-chown -R www-data:www-data /data/weblog/nginx/www.domain.com
-chown -R www-data:www-data /data/weblog/tomcat
-chown -R www-data:www-data /data/weblog/tomcat/www.domain.com
+chown -R big-data:big-data /data/weblog
+chown -R big-data:big-data /data/weblog/business
+chown -R big-data:big-data /data/weblog/business/www.domain.com
+chown -R big-data:big-data /data/weblog/nginx
+chown -R big-data:big-data /data/weblog/nginx/default
+chown -R big-data:big-data /data/weblog/nginx/www.domain.com
+chown -R big-data:big-data /data/weblog/tomcat
+chown -R big-data:big-data /data/weblog/tomcat/www.domain.com
 # 增删改权限
 chmod 775 /data
 # java

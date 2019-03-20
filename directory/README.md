@@ -41,8 +41,8 @@ rsync
 /data/weblog/business --应用逻辑日志，需要细分目录
 ```
 ## 用户权限
-- data目录隶属于www-data组
-- 要操作data目录的用于都加入到www-data组
-- 应用安装时采用root用户，安装好后注意把目录权限切换到www-data
+- data目录隶属于big-data组
+- 要操作data目录的用于都加入到big-data组
+- 应用安装时采用root用户，安装好后注意把目录权限切换到big-data
 - 注意：类似PostgreSQL或者MySQL这些，有专门的用户组，这些不用变更
 - 用户可以拥有sudo权限

@@ -21,11 +21,11 @@ mkdir -p /data/service/nexus
 mv nexus* /data/service/nexus/  
 mv sonatype-work /data/service/nexus/
 
-# 创建用户并授权(需要提前创建www-data用户和用户组，因为/data目录为www-data所有)
+# 创建用户并授权(需要提前创建big-data用户和用户组，因为/data目录为big-data所有)
 useradd nexus
-usermod -a -G www-data nexus
+usermod -a -G big-data nexus
 chmod -R 775 /data/service/nexus
-chown -R www-data:www-data /data/service/nexus
+chown -R big-data:big-data /data/service/nexus
 
 # 修改启动配置
 # 启动用户

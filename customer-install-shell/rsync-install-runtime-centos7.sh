@@ -38,8 +38,8 @@ chkconfig nginx on
 # 添加用户
 useradd nginx
 
-# 设置用户隶属于www-data用户组
-usermod -aG www-data nginx
+# 设置用户隶属于big-data用户组
+usermod -aG big-data nginx
 
 # 启动
 service nginx start 

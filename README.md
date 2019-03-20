@@ -3,7 +3,7 @@ CentOS常用Shell
 注意：如无特殊标识，默认运行环境为CentOS 7+，默认下载到/root/centos-shell（为便于配置，请勿更改此目录）
 ## 获取方法
 ```shell
-curl https://raw.githubusercontent.com/easonjim/centos-shell/master/init.sh | bash
+curl https://raw.githubusercontent.com/JansonChenQ/centos-shell/master/init.sh | bash
 ```
 ## 使用前需要设置脚本可执行权限（非必须）
 ```shell

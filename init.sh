@@ -9,4 +9,4 @@ if [[ "$(whoami)" != "root" ]]; then
 fi
 
 yum install -y git wget
-git clone https://github.com/easonjim/centos-shell /root/centos-shell
+git clone https://github.com/JansonChenQ/centos-shell.git /root/centos-shell

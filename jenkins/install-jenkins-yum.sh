@@ -38,7 +38,7 @@ mkdir -p /data/service/jenkins/var/log/jenkins
 chown -R jenkins:jenkins /data/service/jenkins/var/cache/jenkins
 chown -R jenkins:jenkins /data/service/jenkins/var/lib/jenkins
 chown -R jenkins:jenkins /data/service/jenkins/var/log/jenkins
-usermod -aG big-data jenkins
+usermod -aG bigdata jenkins
 
 # 迁移现有文件
 mv /etc/init.d/jenkins /data/service/jenkins/etc/init.d/

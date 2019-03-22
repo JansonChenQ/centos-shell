@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # 优化内核参数
-
+cd `dirname $0`
 # 引入外部文件
 source ../common/util.sh
 

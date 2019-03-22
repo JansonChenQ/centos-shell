@@ -18,14 +18,14 @@ wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war -O jenkins.war
 userdel jenkins
 groupdel jenkins
 useradd jenkins
-usermod -aG big-data jenkins
+usermod -aG bigdata jenkins
 
 # 创建文件夹，移动目录
 mkdir -p /data/service/jenkins
 mkdir -p /data/service/jenkins/.jenkins
 mv jenkins.war /data/service/jenkins/
 # 修改目录权限
-chown -R big-data:big-data /data/service/jenkins
+chown -R bigdata:bigdata /data/service/jenkins
 chown -R jenkins:jenkins /data/service/jenkins/.jenkins
 
 # 安装start-stop-daemon

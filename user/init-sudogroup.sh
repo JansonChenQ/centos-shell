@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# 初始化sudo用户组big-data
+# 初始化sudo用户组bigdata
 
 # 解决相对路径问题
 cd `dirname $0`
@@ -10,11 +10,11 @@ source ../common/util.sh
 util::check_root
 
 # 设置sudogroup用户组
-echo "设置sudo用户组为big-data"
-if [[ `grep -c "^big-data" /etc/passwd` = 0 || `grep -c "^big-data" /etc/group` = 0 ]]; then
+echo "设置sudo用户组为bigdata"
+if [[ `grep -c "^bigdata" /etc/passwd` = 0 || `grep -c "^bigdata" /etc/group` = 0 ]]; then
 #    useradd sudogroup
     # 设置sudo权限
-    echo "%big-data    ALL=(ALL)       ALL" >> /etc/sudoers
+    echo "%bigdata    ALL=(ALL)       ALL" >> /etc/sudoers
 else
-    echo "big-data用户已存在"
+    echo "bigdata用户已存在"
 fi

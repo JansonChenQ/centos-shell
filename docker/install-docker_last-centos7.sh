@@ -58,7 +58,7 @@ yum install -y docker-ce
 # 创建用户组
 groupadd docker
 usermod -aG docker root
-usermod -aG docker big-data
+usermod -aG docker bigdata
 
 # 设置启动项
 systemctl enable docker

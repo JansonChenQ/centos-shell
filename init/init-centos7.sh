@@ -1,15 +1,14 @@
 #!/bin/bash
 # 
 # init centos 7
-
+cd `dirname $0`
 # 引入外部文件
 source ../common/util.sh
 
 # 检查root
 util::check_root
 
-# 初始化新用户组
-bash init-newuser-sudo.sh bddev 'qwe111111'
+
 
 # 安装前置依赖
 # 安装常用软件
@@ -189,7 +188,7 @@ for i in $*; do
     STAMP=`date +%s`  
     fileName=`basename $i`  
     mv $i $TRASH_DIR/$fileName.$STAMP  
-done  
+done
 EOF
 ## 赋予权限
 chmod +x /data/.trash/remove.sh
@@ -206,11 +205,16 @@ if [[ `grep -c "trash" /etc/crontab` = 0 ]]; then
 fi
 
 # 替换关机/重启命令(shutdown/poweroff/reboot)
+# alias reboot='echo "Prohibition of use!"'
 cat <<EOF > /etc/profile.d/init.sh
-alias reboot='echo "Prohibition of use!"'
 alias shutdown='echo "Prohibition of use!"'
 alias poweroff='echo "Prohibition of use!"'
 EOF
 
 # CentOS 7开机启动文件配置
 chmod +x /etc/rc.d/rc.local
+
+
+# source ../user/init-newuser-sudo.sh
+# 初始化新用户组
+. ../user/init-newuser-sudo.sh bddev 'qwe111111'

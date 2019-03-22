@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # init centos 6
-
+cd `dirname $0`
 # 引入外部文件
 source ../common/util.sh
 

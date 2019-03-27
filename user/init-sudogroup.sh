@@ -13,6 +13,7 @@ util::check_root
 echo "设置sudo用户组为bigdata"
 if [[ `grep -c "^bigdata" /etc/passwd` = 0 || `grep -c "^bigdata" /etc/group` = 0 ]]; then
 #    useradd sudogroup
+#    groupadd bigdata
     # 设置sudo权限
     echo "%bigdata    ALL=(ALL)       ALL" >> /etc/sudoers
 else

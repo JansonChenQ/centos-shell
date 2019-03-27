@@ -123,16 +123,16 @@ sed -i 's/4096/1024000/g' /etc/security/limits.d/20-nproc.conf
 
 # 调整字符集，使其支持中文（没必要中文，方便问题排查）
 # yum -y groupinstall "fonts" &> /dev/null
-# sed -i s/"^LANG=.*$"/"LANG=zh_CN.UTF-8"/ /etc/locale.conf 
-# echo 'SUPPORTED="zh_CN:zh:en_US.UTF-8:en_US:en:zh_CN.GB18030"' >> /etc/locale.conf 
-# source /etc/locale.conf 
+# sed -i s/"^LANG=.*$"/"LANG=zh_CN.UTF-8"/ /etc/locale.conf
+# echo 'SUPPORTED="zh_CN:zh:en_US.UTF-8:en_US:en:zh_CN.GB18030"' >> /etc/locale.conf
+# source /etc/locale.conf
 
 # 去除系统及内核版本登录前的屏幕显示
 ## 备份
 cp /etc/redhat-release{,.bak'_'`date +%Y%m%d_%H%M%S`}
 cp /etc/issue{,.bak'_'`date +%Y%m%d_%H%M%S`}
 ## 修改
-echo "" >/etc/redhat-release
+# echo "" >/etc/redhat-release
 echo "" >/etc/issue
 
 # 不锁定文件，避免往后维护困难($CHATTR -i可以恢复)
@@ -187,7 +187,7 @@ TRASH_DIR="/data/.trash/tmp"
 for i in $*; do  
     STAMP=`date +%s`  
     fileName=`basename $i`  
-    mv $i $TRASH_DIR/$fileName.$STAMP  
+    mv $i $TRASH_DIR/$fileName.$STAMP
 done
 EOF
 ## 赋予权限
@@ -217,4 +217,4 @@ chmod +x /etc/rc.d/rc.local
 
 # source ../user/init-newuser-sudo.sh
 # 初始化新用户组
-. ../user/init-newuser-sudo.sh bddev 'qwe111111'
+#. ../user/init-newuser-sudo.sh bddev 'qwe111111'

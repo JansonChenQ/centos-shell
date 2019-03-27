@@ -4,7 +4,8 @@
 
 # 安装依赖
 yum install -y libaio
-
+ # 创建目录
+mkdir -p /data/service/mysql
 # 下载
 if [[ ! -d mysql-5.7.18-linux-glibc2.5-x86_64 ]]; then
 
@@ -12,13 +13,10 @@ if [[ ! -d mysql-5.7.18-linux-glibc2.5-x86_64 ]]; then
          wget https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.18-linux-glibc2.5-x86_64.tar.gz -O mysql-5.7.18-linux-glibc2.5-x86_64.tar.gz
     fi
 
-    # 创建目录
-    mkdir -p /data/service/mysql
-
     # 解压
     tar zxvf mysql-5.7.18-linux-glibc2.5-x86_64.tar.gz
 fi
-mv mysql-5.7.18-linux-glibc2.5-x86_64/* /data/service/mysql
+mv mysql-5.7.18-linux-glibc2.5-x86_64/* -C /data/service/mysql
 #cd /data/service/mysql
 # 创建用户组
 groupadd mysql
@@ -120,4 +118,4 @@ mysql_secure_installation
 mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root -p mysql
 
 # 设置用户隶属于bigdata用户组
-usermod -aG bigdata mysql
+#usermod -aG bigdata mysql
